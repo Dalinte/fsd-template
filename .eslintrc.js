@@ -53,6 +53,9 @@ module.exports = {
     })
   },
   rules: {
+    'comma-dangle': ['error', {
+      objects: 'always-multiline',
+    }],
     'import/order': [
       'error',
       {
