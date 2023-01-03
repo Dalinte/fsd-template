@@ -10,5 +10,5 @@ export const store = createStore({
   actions: {
   },
   modules: {
-  }
+  },
 })
