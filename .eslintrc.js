@@ -29,7 +29,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:boundaries/recommended'
+    'plugin:boundaries/recommended',
   ],
   settings: {
     'import/resolver': {
@@ -45,7 +45,7 @@ module.exports = {
       { type: 'widgets', pattern: 'widgets/*' },
       { type: 'features', pattern: 'features/*' },
       { type: 'entities', pattern: 'entities/*' },
-      { type: 'shared', pattern: 'shared/*' }
+      { type: 'shared', pattern: 'shared/*' },
     ],
     'boundaries/ignore': ['**/*.test.*'],
     ...createAliasSetting({
@@ -53,9 +53,7 @@ module.exports = {
     }),
   },
   rules: {
-    'comma-dangle': ['error', {
-      objects: 'always-multiline',
-    }],
+    'comma-dangle': ['error', 'always-multiline'],
     'import/order': [
       'error',
       {
@@ -67,11 +65,11 @@ module.exports = {
           { group: 'internal', position: 'after', pattern: '~/widgets/**' },
           { group: 'internal', position: 'after', pattern: '~/features/**' },
           { group: 'internal', position: 'after', pattern: '~/entities/**' },
-          { group: 'internal', position: 'after', pattern: '~/shared/**' }
+          { group: 'internal', position: 'after', pattern: '~/shared/**' },
         ],
         pathGroupsExcludedImportTypes: ['builtin'],
         groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-      }
+      },
     ],
     'no-restricted-imports': [
       'error',
@@ -90,9 +88,9 @@ module.exports = {
           { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/widgets'] },
           { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/features'] },
           { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/entities'] },
-          { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/shared'] }
+          { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/shared'] },
         ],
-      }
+      },
     ],
     'boundaries/element-types': [
       'error',
@@ -105,9 +103,9 @@ module.exports = {
           { from: 'widgets', allow: ['features', 'entities', 'shared'] },
           { from: 'features', allow: ['entities', 'shared'] },
           { from: 'entities', allow: ['shared'] },
-          { from: 'shared', allow: ['shared'] }
+          { from: 'shared', allow: ['shared'] },
         ],
-      }
+      },
     ],
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
